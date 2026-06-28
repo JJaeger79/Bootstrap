@@ -12,6 +12,7 @@ set -u
 readonly SCRIPT_NAME='repo-run'
 readonly SCRIPT_VERSION='0.1.0'
 readonly SCRIPT_TITLE="${SCRIPT_NAME} v${SCRIPT_VERSION}"
+readonly SCRIPT_URL='https://raw.githubusercontent.com/JJaeger79/Bootstrap/main/repo-run.sh'
 
 # ==============================================================================
 # === Usage                                                                  ===
@@ -59,7 +60,7 @@ ssh_user="${LOADER_SSH_USER:-}"       # SSH user              (default: git)
 token="${LOADER_TOKEN:-}"             # access token          (pat)
 token_user="${LOADER_TOKEN_USER:-}"   # HTTPS userinfo for the token (per-host default)
 cache_dir="${LOADER_CACHE:-}"         # clone dir             (default: ~/.cache/repo-run/...)
-loader_url="${LOADER_URL:-}"          # this loader's own URL (only for the reusable one-liner)
+loader_url="${LOADER_URL:-$SCRIPT_URL}" # own URL, used in the reusable curl line (override via --url)
 fresh=0                               # wipe the cache before cloning
 assume_yes=0                          # non-interactive; never prompt
 passthru=()                           # everything after '--' goes to the script
